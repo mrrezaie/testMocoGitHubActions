@@ -1,17 +1,14 @@
 name: Main
-# Conda Package Install and Python Script Run
 
-on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+on: push
 
 jobs:
   build-and-run:
+    name: Conda Package Install and Python Script Run
     runs-on: windows-latest
     steps:
-      uses: actions/checkout@v2
+      # - name: Checkout repository
+      #   uses: actions/checkout@v2
 
       - name: Setup Miniconda
         uses: conda-incubator/setup-miniconda@v2
