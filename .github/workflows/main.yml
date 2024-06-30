@@ -22,7 +22,7 @@ jobs:
         run: conda install -c opensim-org opensim-moco
 
       - name: List files in the repository
-        run: ls -la
-        
-      - name: Run Python script
+        run: dir
+
+      - name: Run OpenSim Moco script
         run: python exampleMocoTrack.py
