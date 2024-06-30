@@ -45,7 +45,7 @@ modelProcessor.append(osim.ModOpAddExternalLoads("grf_walk.xml"))
 modelProcessor.append(osim.ModOpRemoveMuscles())
 # Add CoordinateActuators to the model degrees-of-freedom. This ignores the 
 # pelvis coordinates which already have residual CoordinateActuators.
-modelProcessor.append(osim.ModOpAddReserves(250.0, 1.0))
+modelProcessor.append(osim.ModOpAddReserves(1000))
 track.setModel(modelProcessor)
 
 # Use this convenience function to set the MocoTrack markers reference
