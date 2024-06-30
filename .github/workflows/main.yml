@@ -1,25 +1,25 @@
-name: Conda Package Install and Python Script Run
+name: Main
+# Conda Package Install and Python Script Run
 
 on: [push]
 
 jobs:
     build-and-run:
-    runs-on: windows-latest
+        runs-on: windows-latest
 
-    steps:
-    - name: Checkout repository
-        uses: actions/checkout@v2
+        steps:
+            uses: actions/checkout@v2
 
-    - name: Setup Miniconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-        # activate-environment: myenv
-        # environment-file: environment.yml
-        python-version: 3.11
-        auto-activate-base: true
+            - name: Setup Miniconda
+                uses: conda-incubator/setup-miniconda@v2
+                with:
+                # activate-environment: myenv
+                # environment-file: environment.yml
+                python-version: 3.11
+                auto-activate-base: true
 
-    - name: Install opensim-moco package
-        run: mamba install -c opensim-org opensim-moco
+            - name: Install opensim-moco package
+                run: mamba install -c opensim-org opensim-moco
 
-    - name: Run Python script
-        run: python exampleMocoTrack.py
+            - name: Run Python script
+                run: python exampleMocoTrack.py
