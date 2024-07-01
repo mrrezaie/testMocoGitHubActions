@@ -16,9 +16,10 @@ jobs:
         with:
           activate-environment: 'moco'
           python-version: '3.11'
+          use-mamba: true
 
       - name: Install opensim-moco package
-        run: conda install -c opensim-org opensim-moco
+        run: mamba install -c opensim-org opensim-moco --yes
 
       - name: Run OpenSim Moco script
         run: python exampleMocoTrack.py
