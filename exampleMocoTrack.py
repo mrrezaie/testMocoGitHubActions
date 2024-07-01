@@ -84,22 +84,22 @@ track.set_markers_weight_set(markerWeights)
 # Initial time, final time, and mesh interval. The number of mesh points
 # used to discretize the problem is computed internally using these values.
 track.set_initial_time(0.48)
-track.set_final_time(0.61)
-track.set_mesh_interval(0.02)
+track.set_final_time(1.61)
+track.set_mesh_interval(0.01)
 
-# Solve! Use track.solve() to skip visualizing.
-solution = track.solve()
-solution.write('./tracking_solution.sto')
-
+# solution = track.solve()
+# solution.write('./tracking_solution.sto')
 # track.printToXML('./track.xml')
 
-# study = track.initialize()
-# study.set_write_solution(True)
-# solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
+study = track.initialize()
+study.set_write_solution(True)
+solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
+solver.get_optim_constraint_tolerance(0.001)
+solver.get_optim_convergence_tolerance(0.001)
 # solver.set_parallel(0)
 
 # study.printToXML('./study.xml')
 
-# solution = study.solve()
+solution = study.solve()
 # solution.write('./tracking_solution.sto')
 # study.visualize(solution)
