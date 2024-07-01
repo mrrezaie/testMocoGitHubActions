@@ -84,7 +84,7 @@ track.set_markers_weight_set(markerWeights)
 # Initial time, final time, and mesh interval. The number of mesh points
 # used to discretize the problem is computed internally using these values.
 track.set_initial_time(0.48)
-track.set_final_time(1.61)
+track.set_final_time(0.61)
 track.set_mesh_interval(0.02)
 
 # Solve! Use track.solve() to skip visualizing.
