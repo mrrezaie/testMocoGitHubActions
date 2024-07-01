@@ -16,11 +16,11 @@ jobs:
       #     echo "COMMIT_NAME=$(git log -1 --format=%h)" >> $GITHUB_ENV
       #     echo "COMMIT_DATE=$(git log -1 --format=%cd --date=format:'%Y-%m-%d')" >> $GITHUB_ENV
 
-      - name: Get short SHA
-        run: echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      # - name: Get short SHA
+      #   run: echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
-      - name: Get Date
-        run: echo "DATE=$(Get-Date -Format "yyyyMMdd")" >> $GITHUB_ENV
+      # - name: Get Date
+      #   run: echo "DATE=$(Get-Date -Format "yyyyMMdd")" >> $GITHUB_ENV
 
       # - name: Output Run ID
       #   run: echo ${{ github.run_id }}
@@ -50,6 +50,5 @@ jobs:
       - name: Upload Moco solution file
         uses: actions/upload-artifact@v4
         with:
-          # name: Moco-Solution-${{ steps.configure.outputs.COMMIT_NAME }}-${{ steps.configure.outputs.COMMIT_DATE }}
-          name: Moco-Solution--${{ env.SHORT_SHA }}-${{ env.DATE }}
+          name: Moco-Solution-${{ github.run_number }}
           path: 'MocoStudy_solution.sto'
