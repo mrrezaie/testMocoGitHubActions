@@ -31,7 +31,7 @@ import opensim as osim
 
 # Create and name an instance of the MocoTrack tool.
 track = osim.MocoTrack()
-track.setName("torque_driven_marker_tracking")
+# track.setName("torque_driven_marker_tracking")
 
 # Construct a ModelProcessor and add it to the tool. ModelProcessors
 # accept a base model and allow you to easily modify the model by appending
