@@ -10,6 +10,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set commit name and date
+        run: |
+          echo "COMMIT_NAME=$(git log -1 --format=%h)" >> $GITHUB_ENV
+          echo "COMMIT_DATE=$(git log -1 --format=%cd --date=format:'%Y-%m-%d')" >> $GITHUB_ENV
+
       - name: Setup Miniconda
         uses: conda-incubator/setup-miniconda@v3
         with:
@@ -31,5 +36,5 @@ jobs:
       - name: Upload Moco solution file
         uses: actions/upload-artifact@v4
         with:
-          name: Moco-Solution-${{ steps.configure.outputs.version }}
+          name: Moco-Solution-${{ env.COMMIT_DATE }}-${{ env.COMMIT_NAME }}
           path: 'MocoStudy_solution.sto'
