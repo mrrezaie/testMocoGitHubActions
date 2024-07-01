@@ -3,7 +3,6 @@ name: Main
 on: push
 
 jobs:
-  # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-of-jobsjob_idsteps
   build-and-run:
     name: Main
     runs-on: windows-latest
@@ -16,11 +15,12 @@ jobs:
         with:
           activate-environment: 'moco'
           python-version: '3.11'
-          miniforge-version: 'latest'
-          use-mamba: true
+          # miniforge-version: 'latest'
+          # use-mamba: true
 
       - name: Install opensim-moco package
-        run: mamba install -c opensim-org opensim-moco --yes
+        run: conda install -c opensim-org opensim-moco
+        # run: mamba install -c opensim-org opensim-moco --yes
 
       - name: Run OpenSim Moco script
         run: python exampleMocoTrack.py
@@ -31,5 +31,5 @@ jobs:
       - name: Upload Moco solution file
         uses: actions/upload-artifact@v4
         with:
-          name: Moco Solution -${{ github.sha }}
+          name: Moco Solution -${{ steps.configure.outputs.version }}
           path: 'MocoStudy_solution.sto'
