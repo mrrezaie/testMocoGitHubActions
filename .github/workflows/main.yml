@@ -31,5 +31,5 @@ jobs:
       - name: Upload Moco solution file
         uses: actions/upload-artifact@v4
         with:
-          name: 'Moco Solution'
+          name: 'Moco Solution'-${{ github.sha }}
           path: 'MocoStudy_solution.sto'
