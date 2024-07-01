@@ -50,6 +50,6 @@ jobs:
       - name: Upload Moco solution file
         uses: actions/upload-artifact@v4
         with:
-          name: Moco-Solution-${{ steps.configure.outputs.COMMIT_NAME }}-${{ steps.configure.outputs.COMMIT_DATE }}
+          # name: Moco-Solution-${{ steps.configure.outputs.COMMIT_NAME }}-${{ steps.configure.outputs.COMMIT_DATE }}
           name: Moco-Solution--${{ env.SHORT_SHA }}-${{ env.DATE }}
           path: 'MocoStudy_solution.sto'
