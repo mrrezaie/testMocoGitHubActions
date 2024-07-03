@@ -92,14 +92,18 @@ track.set_mesh_interval(0.05)
 # track.printToXML('./track.xml')
 
 study = track.initialize()
-study.set_write_solution(True)
 solver = osim.MocoCasADiSolver.safeDownCast(study.updSolver())
 solver.set_optim_constraint_tolerance(0.001)
 solver.set_optim_convergence_tolerance(0.001)
 # solver.set_parallel(0)
 
-# study.printToXML('./study.xml')
-
+study.set_write_solution(True)
 solution = study.solve()
-# solution.write('./tracking_solution.sto')
+
+print(os.getcwd())
+print(os.listdir())
+os.mkdir('./output')
+
+study.printToXML('./output/study.xml')
+solution.write('./output/tracking_solution.sto')
 # study.visualize(solution)
